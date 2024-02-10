@@ -1,16 +1,42 @@
-# This is a sample Python script.
+data = []
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+data_file = open('data.txt', 'r')
+num_rows = int(data_file.readline().strip())
+num_cols = int(data_file.readline().strip())
+
+for i in range(0, num_rows):
+    line = data_file.readline()
+    line_split = line.split()
+    num_list = list(map(lambda st: int(st), line_split))
+    data.append(num_list)
+data_file.close()
+
+SUM = 0
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+data = [[-2, 1, 3], [1, -2, 5], [1, -1, 6]]
+results = []
 
+# iterate through first row
+for i in range(0, len(data[0])):
+    f = data[0][i]
+    results.append([f])
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    for j in range(1, len(data)):
+        row = data[j]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        s = f + row[0]
+        ni = row[0]
+
+        for k in range(1, len(row)):
+            n = row[k]
+
+            if abs(f + n) < abs(s):
+                s = f + n
+                ni = n
+
+        results[i].append(ni)
+        f = s
+
+    print(f'f[{i}] = {f}')
+print(results)
