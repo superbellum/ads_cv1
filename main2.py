@@ -5,6 +5,8 @@ matrix_columns = int(file.readline())
 
 lines = file.readlines()
 matrix = [[int(num) for num in line.split()] for line in lines]
+file.close()
+
 test_matrix = [[-2, 1, 3], [1, -2, 5], [1, -1, 6]]
 
 SUM = 0

@@ -11,10 +11,11 @@ for i in range(0, num_rows):
     data.append(num_list)
 data_file.close()
 
+data = data[:5]
+
 SUM = 0
 
-
-data = [[-2, 1, 3], [1, -2, 5], [1, -1, 6]]
+# data = [[-2, 1, 3], [1, -2, 5], [1, -1, 6]]
 results = []
 
 # iterate through first row
